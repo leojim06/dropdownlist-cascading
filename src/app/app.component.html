@@ -1,0 +1,29 @@
+<h1>Dropdownlist cascading Countries</h1>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+  <div>
+
+    <label for="country-title">Countries</label>
+    <select name="country" id="country" formControlName="country">
+      <option [ngValue]="null">--Select country--</option>
+      <option *ngFor="let country of countriesList" [ngValue]="country">
+        {{ country.name }}
+      </option>
+    </select>
+
+    <br>
+
+    <label for="state-title">States</label>
+    <select name="state" id="state" formControlName="state">
+      <option [ngValue]="null">--Select state--</option>
+      <option *ngFor="let state of statesList" [ngValue]="state">
+        {{ state.name }}
+      </option>
+    </select>
+
+  </div>
+
+  <button type="submit" [disabled]="form.invalid">Submit</button>
+
+</form>
